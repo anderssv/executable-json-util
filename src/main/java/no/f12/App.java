@@ -18,19 +18,18 @@ import com.google.gson.Gson;
 public class App {
 	public static void main(String[] args) throws HttpException, IOException {
 		HttpClient client = new HttpClient();
-		HttpMethod httpMethod = new GetMethod("http://api.giphy.com/v1/gifs/screensaver?api_key=dc6zaTOxFJmzC");
+		HttpMethod httpMethod = new GetMethod(
+				"http://api.giphy.com/v1/gifs/screensaver?api_key=dc6zaTOxFJmzC");
 		client.executeMethod(null, httpMethod);
-		
-		Map<String, String> map = new Gson().fromJson(httpMethod.getResponseBodyAsString(), HashMap.class);
-		print(map);
-		
-		for (String key : map.keySet()) {
-			print(key);
-		}
+
+		Map<String, Object> map = new Gson().fromJson(
+				httpMethod.getResponseBodyAsString(), HashMap.class);
+		MapNavigationWrapper wrapper = new MapNavigationWrapper(map);
+		print(wrapper.get("data.id"));
 	}
-	
+
 	public static void print(Object print) {
 		System.out.println(print);
 	}
-	
+
 }
