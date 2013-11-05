@@ -31,7 +31,6 @@ public class MapNavigationWrapperTest {
 						"thank you", "penny", "kaley cuoco" }),
 				wrapper.get("data.tags"));
 		assertEquals(200.0, wrapper.get("meta.status"));
-
 	}
 
 }
