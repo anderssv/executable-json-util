@@ -5,7 +5,7 @@ language. They should write CLIs to make their life easier. It's time to stop wi
 plugins that  shoehorns functionality that have nothing to do with builds and releases into it. 
 
 In additiion:
-- People seems more used to writing tests in Java
+- People seems more used to writing tests in Java. Yes, you should have automated tests for your CLI.
 - You can create single distributable binary
 - It's cross platform
 
