@@ -1,6 +1,6 @@
 This is an example project to test and demonstrate how to create self contained (single binary) CLI in Java. 
 
-I know, I know. Why Java? Well, a lot of people that don't, but definitely should write CLIs havce Java as their primary 
+I know, I know. Why Java? Well, a lot of people that don't, but definitely should write CLIs have Java as their primary 
 language. They should write CLIs to make their life easier. It's time to stop with all the Maven/Gradle/Whatever 
 plugins that  shoehorns functionality that have nothing to do with builds and releases into it. 
 
