@@ -7,27 +7,28 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
 import org.junit.Test;
 
 import com.google.gson.Gson;
 
-public class MapNavigationWrapperTest {
+public class JsonParsingTest {
 
 	@Test
 	public void testShouldParseTextCorrectly() throws Exception {
 		String filename = "result.json";
 		String json = App.readClassPathFile(this.getClass(), filename);
 
-		Map<String, Object> jsonMap = new Gson().fromJson(json, HashMap.class);
-		MapNavigationWrapper wrapper = new MapNavigationWrapper(jsonMap);
+		DocumentContext ctx = JsonPath.parse(json);
 
-		assertNotNull(wrapper.get("data.id"));
-		assertEquals("78D1Ms4p5U9yM", wrapper.get("data.id"));
+		assertNotNull(ctx.read("$.data.id"));
+		assertEquals("78D1Ms4p5U9yM", ctx.read("$.data.id"));
 		assertEquals(
 				Arrays.asList(new String[] { "the big bang theory",
 						"thank you", "penny", "kaley cuoco" }),
-				wrapper.get("data.tags"));
-		assertEquals(200.0, wrapper.get("meta.status"));
+				ctx.read("$.data.tags"));
+		assertEquals(200, ctx.read("$.meta.status"));
 	}
 
 }

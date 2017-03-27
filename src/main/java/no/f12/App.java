@@ -1,8 +1,8 @@
 package no.f12;
 
-import com.google.gson.Gson;
+import com.jayway.jsonpath.DocumentContext;
+import com.jayway.jsonpath.JsonPath;
 import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.io.IOUtils;
@@ -10,7 +10,7 @@ import org.docopt.Docopt;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
+import java.nio.charset.Charset;
 import java.util.Map;
 
 public class App {
@@ -25,11 +25,11 @@ public class App {
         if (result == null) {
             return usage;
         } else if ((Boolean) result.get("animate")) {
-            MapNavigationWrapper wrapper = parseJson(getAnimatedGif());
+            DocumentContext ctx = parseJson(getAnimatedGif());
 
-            print(wrapper.get("data.id"));
-            print(wrapper.get("data.image_original_url"));
-        } else if((Boolean) result.get("say")) {
+            print(ctx.read("$data.id"));
+            print(ctx.read("$data.image_original_url"));
+        } else if ((Boolean) result.get("say")) {
             if (result.get("--encrypt") != null && result.get("--encrypt").equals("rot13")) {
                 return rot13((String) result.get("<something>"));
             } else {
@@ -42,13 +42,11 @@ public class App {
     }
 
 
-    private static MapNavigationWrapper parseJson(String response) {
-        Map<String, Object> map = new Gson().fromJson(response, HashMap.class);
-        MapNavigationWrapper wrapper = new MapNavigationWrapper(map);
-        return wrapper;
+    private static DocumentContext parseJson(String response) {
+        return JsonPath.parse(response);
     }
 
-    private static String getAnimatedGif() throws IOException, HttpException {
+    private static String getAnimatedGif() throws IOException {
         HttpClient client = new HttpClient();
         HttpMethod httpMethod = new GetMethod(
                 "http://api.giphy.com/v1/gifs/screensaver?api_key=dc6zaTOxFJmzC");
@@ -63,7 +61,7 @@ public class App {
     public static String readClassPathFile(Class clazz, String filename)
             throws IOException {
         URL resource = clazz.getClassLoader().getResource(filename);
-        String json = IOUtils.toString(resource.openStream());
+        String json = IOUtils.toString(resource.openStream(), Charset.defaultCharset());
         return json;
     }
 
