@@ -8,6 +8,7 @@ In additiion:
 - People seems more used to writing tests in Java. Yes, you should have automated tests for your CLI.
 - You can create single distributable binary
 - It's cross platform
+- It starts up much faster than I feared. ;)
 
 You can do it. Just write a CLI. ;)
 
