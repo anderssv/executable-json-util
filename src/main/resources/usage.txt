@@ -1,9 +1,14 @@
-JSON
+Test util to run CLI agains Giphy
+
+See http://docopt.org/ for examples on how to write command line
 
 Usage:
   json-util animate me
+  json-util say [--encrypt=<encryption_name>] <something>
+
   json-util -h | --help
 
 Options:
-  -h --help     Show this screen.
+  -h --help                         Show this screen.
+  -e --encrypt=<encryption_name>    Specify encryption to use. Available: rot13
   
