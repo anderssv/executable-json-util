@@ -39,4 +39,4 @@ Or you test it easily like this:
     curl https://dl.dropboxusercontent.com/u/122923/executable-json-util-1.0-SNAPSHOT.jar > ~/bin/json-util && chmod u+x ~/bin/json-util
     ~/bin/json-util
     
-You probably shhouldn't download random binaries off the internet and run them, but if you like to you can. :)
+You probably shouldn't download random binaries off the internet and run them, but if you like to you can. :)
