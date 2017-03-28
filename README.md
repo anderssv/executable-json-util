@@ -31,11 +31,13 @@ usually do something like:
     
 # Testing
 
-You can build and run locally:
+**NOTE:** As this is Java you'll of course need a JRE installed. Nothing will work witout it. :)
+
+You can build and run locally (requires all the usual Maven, JDK things):
 
     mvn clean install && ./target/executable-json-util-1.0-SNAPSHOT.jar
     
-Or you test it easily like this:
+Or you test it easily like this (just need the JRE):
 
     curl https://dl.dropboxusercontent.com/u/122923/executable-json-util-1.0-SNAPSHOT.jar > ~/bin/json-util && chmod u+x ~/bin/json-util
     ~/bin/json-util
