@@ -27,8 +27,8 @@ public class App {
         } else if ((Boolean) result.get("animate")) {
             DocumentContext ctx = parseJson(getAnimatedGif());
 
-            print(ctx.read("$data.id"));
-            print(ctx.read("$data.image_original_url"));
+            print(ctx.read("$.data.id"));
+            print(ctx.read("$.data.image_original_url"));
         } else if ((Boolean) result.get("say")) {
             if (result.get("--encrypt") != null && result.get("--encrypt").equals("rot13")) {
                 return rot13((String) result.get("<something>"));
