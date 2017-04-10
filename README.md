@@ -22,6 +22,8 @@ These are of course traits you can find other places, but I really wanted to mak
 
 There are other libraries used as well, but they are only for demo purposes.
 
+**NOTE:** The Shade plugin might get you into problems with some libraries. A friend of mine pointed me in the direction of [Capsule](http://www.capsule.io/) which looks promising. You might want to look into that if Shade gives you problmems. There are some minor drawbacks to how it does stuff, but I'll certainly keep it at hand.
+
 # Distribution of the binary
 
 Hopefully you release your binaries from Maven to some kind of repository. That makes it available over HTTP so I
