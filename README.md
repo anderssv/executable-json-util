@@ -31,6 +31,10 @@ usually do something like:
 
     curl http://myrepo/org/my/group/artifact/version/artifact-version.jar > ~/bin/mycli && chmod u+x ~/bin/mycli
     
+# Awesomeness with completion
+
+Since DocOpt is a machine readable format you can even generate Bash completion for your command automatically. Have a look at this link to see how: https://github.com/Infinidat/infi.docopt_completion
+
 # Testing
 
 **NOTE:** As this is Java you'll of course need a JRE installed. Nothing will work witout it. :)
