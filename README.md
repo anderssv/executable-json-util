@@ -14,6 +14,15 @@ You can do it. Just write a CLI. ;)
 
 These are of course traits you can find other places, but I really wanted to make it easy in Java too. ;)
 
+# Requirements
+
+To build/test this project you'll need:
+
+- JDK (8 and above)
+- Maven
+
+Running the resulting code requires a JRE installed.
+
 # What's used
 
 - We use the [Maven Shade plugin](https://github.com/brianm/really-executable-jars-maven-plugin) to create one binary that can easily be distributed.
